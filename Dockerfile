@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-LABEL authors="MX"
+LABEL authors="DistributedSystemProject"
 FROM python:3.12
 
 WORKDIR /app
