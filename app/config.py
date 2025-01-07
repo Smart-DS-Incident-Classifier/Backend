@@ -2,8 +2,9 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     mongo_uri: str
-    database_name: str = "distrubutedSystemDB"
-    collection_name: str = "distrubutedSystemDB"
+    database_name: str
+    collection_name: str
+    kafka_broker: str
 
     class Config:
         env_file = ".env"
