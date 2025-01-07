@@ -1,0 +1,32 @@
+# Python-related files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.sqlite3
+
+# Environment variables
+.env
+
+# Docker
+*.log
+docker-compose.override.yml
+.Dockerfile.swp
+
+# VSCode/IDE settings
+.idea/
+.vscode/
+
+# Test artifacts
+.coverage
+.tox/
+nosetests.xml
+test_main.http
+
+# Python virtual environment
+venv/
+.env/
+
+# OS generated files
+.DS_Store
+Thumbs.db
