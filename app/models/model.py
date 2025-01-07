@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
 
+#parse data
 class Log(BaseModel):
     source: str = Field(..., description="Source of the log (e.g., Hadoop, HDFS)")
     severity: str = Field(..., description="Severity level (e.g., High, Medium, Low)")
