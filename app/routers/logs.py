@@ -5,6 +5,7 @@ from app.services.kafka_producer import produce_log
 import csv
 import json
 from typing import List
+from app.services.service import find_similar_incidents
 
 router = APIRouter(prefix="/logs", tags=["Logs"])
 
@@ -79,3 +80,18 @@ async def stream_log(log: Log):
         return {"message": "Log streamed successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to stream log: {e}")
+
+@router.post("/match-incident")
+async def match_incident(message: str):
+    try:
+        result = find_similar_incidents(message)
+        if result:
+            return {
+                "message" : "Similar incidents found",
+                "historical_log" : result["historical_log"],
+                "similar_score" : result["similarity_score"]
+            }
+        else:
+            return {"message" : "No similar incidents found"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to match incidents: {e}")
